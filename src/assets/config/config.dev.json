@@ -1,0 +1,24 @@
+{
+  "env": {
+    "name": "Developer"
+  },  
+  "baseAPI": "https://localhost:44305/api/v1/",
+  "subscriptionKey": "",
+  "appInsights": {
+    "instrumentationKey": ""
+  },
+  "Identification": {
+    "link": "https://saepmnpstaticwebprivuat.z13.web.core.windows.net/microfront/identificacion/identidadrealsql/main.js",
+    "style": "https://saepmnpstaticwebprivuat.z13.web.core.windows.net/microfront/identificacion/identidadrealsql/styles.css"
+  },
+  "Autenticacion": {
+    "link": "https://saepmnpstaticwebprivuat.z13.web.core.windows.net/autenticacionmicro/autenticacion/main.js",
+    "style": "https://saepmnpstaticwebprivuat.z13.web.core.windows.net/autenticacionmicro/autenticacion/styles.css"
+  },
+  "autorizacion": {
+    "inProduction": false,
+    "subscriptionKey": "6acd7ce08d954f94916e101408ed1450",
+    "clientId": "72b149ce-3731-4eeb-81b8-e71ef0667482",
+    "url": "https://apimnp.epm.com.co/ComponenteAutorizacion/uat/api/v1"
+  }
+}

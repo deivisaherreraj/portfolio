@@ -1,0 +1,29 @@
+{
+  "env": {
+    "name": "Deploy"
+  },
+  "baseAPI": "#{UrlApi}#",
+  "subscriptionKey": "#{SubscriptionKeyApi}#",
+  "appInsights": {
+    "instrumentationKey": "#{InstrumentationKey}#"
+  },
+  "identificacion": {
+    "url": "#{UrlIdentificacion}#",
+    "subscriptionKey": "#{SubscriptionKeyApiIdentificacion}#",
+    "link": "#{identificacion.link}#",
+    "style": "#{identificacion.style}#"
+  },
+  "adfs": {
+    "urlAlternativa": "#{urlAlternativa}#"
+  },
+  "Autenticacion": {
+    "link": "#{Autenticacion.link}#",
+    "style": "#{Autenticacion.style}#"
+  },
+  "autorizacion": {
+    "inProduction": "#{InProductionAutorizacion}#",
+    "subscriptionKey": "#{SuscriptionKeyAutorizacion}#",
+    "clientId": "#{ClientIdAutorizacion}#",
+    "url": "#{UrlAutorizacion}#"
+  }
+}
