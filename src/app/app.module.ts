@@ -23,9 +23,9 @@ import { LayoutModule } from './layout/layout.module';
     AppRoutingModule,
     SharedModule,
     LayoutModule,
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,   
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,7 +33,6 @@ import { LayoutModule } from './layout/layout.module';
         deps: [HttpClient],
       },
     }),
-
     SharedModule,
     AdministracionesModule
   ],

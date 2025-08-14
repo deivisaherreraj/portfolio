@@ -1,0 +1,50 @@
+<div class="pt-20 px-6">
+  <ng-container *ngIf="!project">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl font-bold mb-6">Project Not Found</h1>
+      <p class="text-zinc-400 mb-8">
+        The project you're looking for doesn't exist.
+      </p>
+      <a routerLink="/" class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors">
+        <span>Back to Home</span>
+      </a>
+    </div>
+  </ng-container>
+
+  <div *ngIf="project" class="max-w-4xl mx-auto">
+    <a routerLink="/#projects" class="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-200 mb-8">
+      <span>Back to Projects</span>
+    </a>
+
+    <div [@fadeInUp]>
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img [src]="project.image" [alt]="project.title" class="w-full h-auto" />
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <h1 class="text-3xl font-bold">{{ project.title }}</h1>
+        <div class="flex items-center gap-4">
+          <a *ngIf="project.githubLink" [href]="project.githubLink" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition-colors">
+            <span>Source Code</span>
+          </a>
+          <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors">
+            <span>Live Demo</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span *ngFor="let tag of project.tags" class="px-3 py-1 bg-zinc-800 rounded-full text-sm">
+          {{ tag }}
+        </span>
+      </div>
+
+      <div class="prose prose-invert max-w-none">
+        <h2 class="text-2xl font-semibold mb-4">Project Overview</h2>
+        <p class="text-zinc-300 mb-6">{{ project.description }}</p>
+        <h2 class="text-2xl font-semibold mb-4">Details</h2>
+        <p class="text-zinc-300 mb-6">{{ project.details }}</p>
+      </div>
+    </div>
+  </div>
+</div>

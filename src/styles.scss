@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
@@ -12,7 +16,7 @@
 
 :root {
   --bg-color: #1f242d;
-  --second-bg-color: #323946;  
+  --second-bg-color: #323946;
   --main-color: #0ef;
   --text-color: #fff;
   --shadow-color: rgba(0, 0 , 0, .2);
@@ -25,12 +29,12 @@
   --text-color: #ededed;
 }
 
-html { 
+html {
   font-size: 62.5%;
   overflow-x: hidden;
 }
 
-body { 
+body {
   background: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
@@ -85,8 +89,8 @@ body {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  margin-right: 3.5rem; 
-  transition: .3s; 
+  margin-right: 3.5rem;
+  transition: .3s;
   opacity: 0;
   animation: slideTop .5s ease forwards;
   animation-delay: calc(.2s * var(--i));
@@ -103,15 +107,15 @@ body {
   left: 0;
   width: 100%;
   height: .2rem;
-  bottom: -6px;  
+  bottom: -6px;
   background: var(--main-color);
 }
 
 #toggle-icon {
   display: flex;
   font-size: 2.4rem;
-  color: var(--text-color);  
-  cursor: pointer;  
+  color: var(--text-color);
+  cursor: pointer;
   opacity: 0;
   animation: slideTop .5s ease forwards;
   animation-delay: 1.3s;
@@ -134,10 +138,10 @@ section {
   padding: 10rem 7% 2rem;
 }
 
-.home {  
+.home {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .home .home-content {
@@ -168,7 +172,7 @@ section {
   width: 4rem;
   height: 4rem;
   background: transparent;
-  border: .2rem solid var(--main-color);  
+  border: .2rem solid var(--main-color);
   border-radius: 50%;
   box-shadow: 0 .2rem .5rem var(--shadow-color);
   font-size: 2rem;
@@ -270,7 +274,7 @@ span {
 
 .heading {
   font-size: 4.5rem !important;
-  text-align: center;  
+  text-align: center;
 }
 
 .about-content h2 {
@@ -437,7 +441,7 @@ span {
 .skills-content .progress h3 {
   font-size: 1.7rem;
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
 .skills-content .progress h3 span {
@@ -493,7 +497,7 @@ span {
 
 .services {
   min-height: auto;
-  padding-bottom: 7rem;  
+  padding-bottom: 7rem;
 }
 
 .services h2 {
@@ -565,7 +569,7 @@ span {
   display: flex;
   border-radius: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 .portfolio-box img {
@@ -787,7 +791,7 @@ span {
   }
 
   .home .profession-container {
-    height: 85.8rem;    
+    height: 85.8rem;
   }
 
   .home .profession-container .overlay {
@@ -853,7 +857,7 @@ span {
 
   #toggle-icon {
     position: absolute;
-    right: 8.6rem;    
+    right: 8.6rem;
     margin-bottom: .1rem;
     color: var(--text-color);
     font-size: 2.6rem;
@@ -894,7 +898,7 @@ span {
 
   .navbar a::before {
     display: none;
-  }  
+  }
 
   .home {
     padding: 0 3% 8rem;
@@ -966,13 +970,13 @@ span {
   }
 }
 
-@media (max-width: 617px) {  
+@media (max-width: 617px) {
   .portfolio .portfolio-container {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 450px) {  
+@media (max-width: 450px) {
   html {
     font-size: 50%;
   }
