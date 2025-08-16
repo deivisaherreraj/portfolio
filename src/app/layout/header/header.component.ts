@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -17,20 +17,49 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ]),
   ],
 })
-export class HeaderComponent implements OnInit {
-  isDark = true;
+export class HeaderComponent implements OnInit, OnDestroy {
+  // @Input() recibe datos del componente padre
+  @Input() theme: 'dark' | 'light' = 'dark';
+  // @Output() emite un evento al componente padre cuando el tema cambia
+  @Output() themeToggled = new EventEmitter<void>();
+
+  isScrolled = false;
   isMenuOpen = false;
+
+  // Nuevo array de objetos para los enlaces de navegación
+  navLinks = [
+    { text: 'Inicio', value: 'home' },
+    { text: 'Sobre mí', value: 'about' },
+    { text: 'Habilidades', value: 'skills' },
+    { text: 'Proyectos', value: 'projects' },
+    { text: 'Experiencia', value: 'experience' },
+    { text: 'Contacto', value: 'contact' }
+  ];
 
   constructor() { }
 
   ngOnInit(): void { }
 
-  toggleTheme(): void {
-    this.isDark = !this.isDark;
-    document.documentElement.classList.toggle('dark');
+  ngOnDestroy(): void { }
+
+  // Escucha el evento 'scroll' en la ventana
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 10;
   }
 
+  // Alterna el estado del menú
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  // Emite el evento para que el padre cambie el tema
+  toggleTheme(): void {
+    this.themeToggled.emit();
+  }
+
+  // Cierra el menú móvil al hacer clic en un enlace
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }

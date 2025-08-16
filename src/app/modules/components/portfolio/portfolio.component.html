@@ -1,0 +1,90 @@
+<section id="projects" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Encabezado de la sección con animación -->
+    <div [@fadeInUp]="'in'" class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Proyectos Destacados
+      </h2>
+      <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+      <p class="mt-6 text-zinc-400 max-w-2xl mx-auto">
+        Aquí hay algunos de mis proyectos recientes. Cada uno presentó desafíos únicos y oportunidades para aprender y
+        crecer.
+      </p>
+    </div>
+
+    <div #projectsGrid [class.opacity-100]="inView" [class.translate-y-0]="inView" [class.opacity-0]="!inView"
+      [class.translate-y-10]="!inView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Contenedor para la animación escalonada -->
+      <div [@listStagger]="projects.length" class="contents">
+        <!-- Itera sobre el array de proyectos con *ngFor -->
+        <div *ngFor="let project of projects" class="bg-zinc-800 rounded-xl overflow-hidden">
+          <div class="h-48 overflow-hidden">
+            <img [src]="project.image" [alt]="project.title"
+              class="w-full h-full object-cover transition-transform hover:scale-105" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+            <p class="text-zinc-400 mb-4">{{ project.description }}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <!-- Itera sobre las etiquetas de cada proyecto -->
+              <span *ngFor="let tag of project.tags" class="px-2 py-1 bg-zinc-700 rounded-md text-xs">
+                {{ tag }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <!-- Enlace a la página de detalles del proyecto -->
+              <!-- Nota: Para que routerLink funcione, necesitarás tener el RouterModule configurado -->
+              <a [routerLink]="['/project', project.id]"
+                class="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 text-sm">
+                <span>Ver Detalles</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-arrow-right" aria-hidden="true" data-id="element-182">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+              <div class="flex gap-3">
+                <!-- Enlace a GitHub (se muestra solo si existe) -->
+                <a *ngIf="project.githubLink" [href]="project.githubLink" target="_blank" rel="noopener noreferrer"
+                  class="text-zinc-400 hover:text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-github" aria-hidden="true" data-id="element-185">
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                    </path>
+                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                  </svg>
+                </a>
+                <!-- Enlace al proyecto en vivo (se muestra solo si existe) -->
+                <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" rel="noopener noreferrer"
+                  class="text-zinc-400 hover:text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-external-link" aria-hidden="true" data-id="element-187">
+                    <path d="M15 3h6v6"></path>
+                    <path d="M10 14 21 3"></path>
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="#"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full inline-flex items-center space-x-2 transition-transform duration-300 transform hover:scale-105 active:scale-95 cursor-pointer">
+        <span>Ver más proyectos</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-arrow-right" aria-hidden="true" data-id="element-197">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

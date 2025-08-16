@@ -2,19 +2,27 @@
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
     <div class="mb-4 md:mb-0">
       <span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-        DevPortfolio
+        deivisaherreraj.dev
       </span>
     </div>
     <div class="text-zinc-400 text-sm">
-      © {{ currentYear }} John Smith. All rights reserved.
+      © {{ currentYear }} Deivis Herrera Julio. Todos los derechos reservados.
     </div>
     <div class="mt-4 md:mt-0 flex gap-6">
       <a href="#" class="text-zinc-400 hover:text-white transition-colors">
-        Privacy Policy
+        Política de Privacidad
       </a>
       <a href="#" class="text-zinc-400 hover:text-white transition-colors">
-        Terms of Service
+        Términos de Servicio
       </a>
     </div>
   </div>
+  <button (click)="scrollToTop()"
+    class="fixed bottom-6 right-6 p-3 bg-zinc dark:bg-dark-100 rounded-full shadow-md hover:shadow-lg border border-gray-600 dark:border-gray-800 transition-all hover:transform hover:-translate-y-1"
+    aria-label="Desplazarse hacia arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 </footer>

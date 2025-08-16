@@ -1,4 +1,4 @@
-import { Project } from '../../modules/administraciones/portfolio/models/project';
+import { Project } from '../../modules/components/portfolio/models/project';
 
 export const projects: Project[] = [
   {

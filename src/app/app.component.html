@@ -1,5 +1,5 @@
-<div class="min-h-screen bg-zinc-900 text-zinc-100">
-  <app-header></app-header>
+<div class="min-h-screen bg-zinc-900 text-zinc-100 dark:bg-zinc-900 dark:text-zinc-100">
+  <app-header [theme]="theme" (themeToggled)="toggleTheme()"></app-header>
   <main class="w-full">
     <div [@routeAnimations]="getRouteAnimationData(routerOutlet)" class="w-full">
       <router-outlet #routerOutlet="outlet"></router-outlet>

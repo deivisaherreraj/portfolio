@@ -9,14 +9,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdministracionesModule } from './modules/administraciones/administraciones.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +33,6 @@ import { LayoutModule } from './layout/layout.module';
       },
     }),
     SharedModule,
-    AdministracionesModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

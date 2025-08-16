@@ -36,6 +36,7 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
   ]
 })
 export class AppComponent {
+  theme: 'dark' | 'light' = 'dark';
 
   constructor(
     readonly translate: TranslateService,
@@ -45,6 +46,18 @@ export class AppComponent {
     this.translate.get('TextosAplicacion.PageTitle').subscribe((res: string) => {
       this.titleService.setTitle(res);
     });
+    // Carga el tema guardado en localStorage al iniciar la aplicación
+    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' || 'dark';
+    this.theme = savedTheme;
+    // Aplica la clase 'dark' al elemento <html>
+    document.documentElement.classList.toggle('dark', this.theme === 'dark');
+  }
+
+  toggleTheme(): void {
+    const newTheme = this.theme === 'dark' ? 'light' : 'dark';
+    this.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
   }
 
   getRouteAnimationData(outlet: RouterOutlet) {
