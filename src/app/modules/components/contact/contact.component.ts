@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { NgForm } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
@@ -52,7 +53,9 @@ export class ContactComponent implements OnInit {
   isSubmitting = false;
   submitMessage = '';
 
-  constructor() { }
+  constructor(
+    readonly translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
     // Implementa IntersectionObserver para la animación de entrada
@@ -76,7 +79,7 @@ export class ContactComponent implements OnInit {
     // Simula el envío del formulario con un temporizador
     setTimeout(() => {
       this.isSubmitting = false;
-      this.submitMessage = '¡Mensaje enviado! Gracias por tu mensaje. Te responderé pronto.';
+      this.submitMessage = this.translate.instant('Contact.SuccessMessage');
 
       // Reinicia el formulario
       form.resetForm();

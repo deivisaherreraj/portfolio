@@ -8,8 +8,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('fadeIn', [
       transition('void => *', [
-        style({ opacity: 0 }),
-        animate('0.5s ease-in-out', style({ opacity: 1 })),
+        style({ opacity: 0, y: 20, }),
+        animate('0.5s ease-in-out', style({ opacity: 1, y: 0 })),
       ]),
     ]),
     trigger('slideUp', [

@@ -1,5 +1,9 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { TranslateService } from '@ngx-translate/core';
+import { DOCUMENT } from '@angular/common';
+
+type Theme = 'dark' | 'light';
 
 @Component({
   selector: 'app-header',
@@ -19,26 +23,39 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   // @Input() recibe datos del componente padre
-  @Input() theme: 'dark' | 'light' = 'dark';
+  @Input() theme: Theme = 'dark';
   // @Output() emite un evento al componente padre cuando el tema cambia
   @Output() themeToggled = new EventEmitter<void>();
 
   isScrolled = false;
-  isMenuOpen = false;
+  isMenuOpen = false;  
+  isDark = true;
 
-  // Nuevo array de objetos para los enlaces de navegación
+  /** Idioma actual */
+  language: 'es' | 'en' = 'es';
+
+  /** Enlaces (ahora con keys de i18n para usar {{ key | translate }}) */
   navLinks = [
-    { text: 'Inicio', value: 'home' },
-    { text: 'Sobre mí', value: 'about' },
-    { text: 'Habilidades', value: 'skills' },
-    { text: 'Proyectos', value: 'projects' },
-    { text: 'Experiencia', value: 'experience' },
-    { text: 'Contacto', value: 'contact' }
+    { key: 'Home', value: 'home' },
+    { key: 'About', value: 'about' },
+    { key: 'Projects', value: 'projects' },
+    { key: 'Experience', value: 'experience' },
+    { key: 'Contact', value: 'contact' }
   ];
 
-  constructor() { }
+  constructor(
+    readonly translate: TranslateService,
+    @Inject(DOCUMENT) private document: Document
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // Sincroniza estado inicial desde @Input() y/o localStorage
+    const savedTheme = (localStorage.getItem('theme') as Theme) || this.theme;
+    this.setTheme(savedTheme);
+
+    const savedLang = (localStorage.getItem('lang') as 'es' | 'en') || (this.translate.currentLang as 'es' | 'en') || 'es';
+    this.useLanguage(savedLang);
+  }
 
   ngOnDestroy(): void { }
 
@@ -53,13 +70,39 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  // Emite el evento para que el padre cambie el tema
-  toggleTheme(): void {
-    this.themeToggled.emit();
-  }
-
   // Cierra el menú móvil al hacer clic en un enlace
   closeMenu(): void {
     this.isMenuOpen = false;
+  }
+
+  // Emite el evento para que el padre cambie el tema
+  toggleTheme(): void {
+    const next: Theme = this.isDark ? 'light' : 'dark';
+    this.setTheme(next);
+    this.themeToggled.emit();
+  }
+
+  setTheme(t: Theme) {
+    this.theme = t;
+    this.isDark = t === 'dark';
+
+    const root = this.document.documentElement.classList;
+    if (this.isDark) {
+      root.add('dark');
+    } else {
+      root.remove('dark');
+    }
+    localStorage.setItem('theme', t);
+  }
+
+  toggleLanguage(): void {
+    const next = this.language === 'es' ? 'en' : 'es';
+    this.useLanguage(next);
+  }
+
+  useLanguage(language: 'es' | 'en') {
+    this.language = language;
+    this.translate.use(language);
+    localStorage.setItem('lang', language);
   }
 }

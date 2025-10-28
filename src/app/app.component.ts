@@ -42,7 +42,9 @@ export class AppComponent {
     readonly translate: TranslateService,
     readonly titleService: Title
   ) {
+    this.translate.addLangs(['es', 'en']);
     this.translate.setDefaultLang('es');
+    this.translate.use((localStorage.getItem('lang') as 'es'|'en') || 'es');
     this.translate.get('TextosAplicacion.PageTitle').subscribe((res: string) => {
       this.titleService.setTitle(res);
     });

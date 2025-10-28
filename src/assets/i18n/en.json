@@ -1,5 +1,94 @@
 {
   "TextosAplicacion": {
-    "PageTitle": "DherreraDev by Deivis Herrera | Full-Stack Web & Mobile App Development"
+    "PageTitle": "DherreraDev by Deivis Herrera | Full-Stack Web & Mobile App Development",
+    "PageSubTitle": "Hello 👋 my name is Deivis Herrera | @dherreradev"
+  },
+  "Greeting": "Hello 👋, I'm a",
+  "Name": "Herrera, Deivis",
+  "JobTitle": "Systems Engineer",
+  "HomeTitle": "Senior Software Developer",
+  "HomeSubtitle": "Full-Stack Developer",
+  "Details": "Creating exceptional digital experiences with over 10 years of experience in software development.",
+  "ViewWork": "View projects",
+  "Scroll": "Scroll down for more",
+  "Header": {
+    "LogoAlt": "deivisaherreraj.dev",
+    "NavLinks": {
+      "Home": "Home",
+      "About": "About",
+      "Skills": "Skills",
+      "Projects": "Projects",
+      "Experience": "Experience",
+      "Contact": "Contact",
+      "SwitchTo": {
+        "Light": "Switch to light mode",
+        "Dark": "Switch to dark mode",
+        "En": "Switch to English",
+        "Es": "Switch to Spanish",
+        "ToggleMenu": "Toggle menu"
+      }
+    }
+  },
+  "About": {
+    "Me": "About me",
+    "WhoIAm": "Who I am",
+    "AboutTextOne": "I am a passionate software developer with over 10 years of experience developing web and mobile applications. I specialize in creating intuitive, high-performance solutions that solve real-world problems.",
+    "AboutTextTwo": "My journey in technology began with a curiosity about how things work, which evolved into a career focused on creating exceptional digital experiences. I am constantly learning and adapting to new technologies to deliver the best solutions.",
+    "MainTechnologies": "Main technologies",
+    "FullStackTitle": "Full-Stack Development",
+    "FullStackDescription": "Building comprehensive solutions with modern technologies and best practices.",
+    "TechnicalLeadershipTitle": "Technical Leadership",
+    "TechnicalLeadershipDescription": "Guiding development teams to deliver high-quality software to time.",
+    "OptimizationTitle": "Optimization",
+    "OptimizationDescription": "Improved performance and user experience."
+  },
+  "Skills": {
+    "Title": "Skills",
+    "Description": "Throughout my career, I have gained experience in various technologies and methodologies, enabling me to tackle complex projects with efficient solutions.",
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Databases": "Databases",
+    "Devops": "DevOps",
+    "Methodologies": "Methodologies",
+    "Others": "Others"
+  },
+  "FeaturedProjects": {
+    "Title": "Featured Projects",
+    "Description": "Here are some of my recent projects. Each presented unique challenges and opportunities to learn and grow.",
+    "ViewDetails": "View Details",
+    "ViewMore": "View More Projects",
+    "FilterCategories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Full-Stack",
+      "mobile": "Mobile"
+    }
+  },
+  "ProfessionalExperience": {
+    "Title": "Professional Experience"
+  },
+  "Contact": {
+    "Title": "¡Let's talk!",
+    "Description": "¿Do you have a project in mind or just want to say hello? Don't hesitate to contact me. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",    
+    "SuccessMessage": "¡Message sent! Thank you for your message. I'll get back to you soon.",
+    "Information":  {
+      "Title": "Contact Information",
+      "LabelEmail": "E-mail",
+      "TextEmail": "deivis-andres90@hotmail.com",
+      "LabelPhone": "Phone",
+      "TextPhone": "+57 (318) 224 7238",
+      "LabelLocation": "Location",
+      "TextLocation": "Cartagena de Indias, Colombia",
+      "Subtitle": "Follow me"
+    },
+    "Labels": {
+      "Name": "Name",
+      "Email": "E-mail",
+      "Subject": "Subject",
+      "Message": "Message",
+      "Submitting": "Sending...",
+      "Send": "Send message"
+    }
   }
 }

@@ -2,5 +2,93 @@
   "TextosAplicacion": {
     "PageTitle": "DherreraDev by Deivis Herrera | Desarrollo de app's Web & Móviles Full-Stack",
     "PageSubTitle": "Hola 👋 mi nombre es Deivis Herrera | @dherreradev"
-  }  
+  },
+  "Greeting": "Hola 👋, soy",
+  "Name": "Herrera, Deivis",
+  "JobTitle": "Ingeniero de Sistemas",
+  "HomeTitle": "Desarrollador de Software Senior",
+  "HomeSubtitle": "Desarrollador Full-Stack",
+  "Details": "Creando experiencias digitales excepcionales con más de 10 años de experiencia en desarrollo de software.",
+  "ViewWork": "Ver proyectos",
+  "Scroll": "Desplázate para más",
+  "Header": {
+    "LogoAlt": "deivisaherreraj.dev",
+    "NavLinks": {
+      "Home": "Inicio",
+      "About": "Sobre mí",
+      "Skills": "Habilidades",
+      "Projects": "Proyectos",
+      "Experience": "Experiencia",
+      "Contact": "Contacto",
+      "SwitchTo": {
+        "Light": "Cambiar a modo claro",
+        "Dark": "Cambiar a modo oscuro",
+        "En": "Cambiar a Inglés",
+        "Es": "Cambiar a Español",
+        "ToggleMenu": "Abrir/Cerrar menú"
+      }
+    }
+  },
+  "About": {
+    "Me": "Sobre mí",
+    "WhoIAm": "Quién soy",
+    "AboutTextOne": "Soy un apasionado desarrollador de software con más de 10 años de experiencia en el desarrollo de aplicaciones web y móviles. Me especializo en la creación de soluciones intuitivas y de alto rendimiento que resuelven problemas del mundo real.",
+    "AboutTextTwo": "Mi trayectoria en el mundo de la tecnología comenzó con la curiosidad por el funcionamiento de las cosas, que evolucionó hacia una carrera centrada en la creación de experiencias digitales excepcionales. Estoy en constante aprendizaje y adaptación a las nuevas tecnologías para ofrecer las mejores soluciones.",
+    "MainTechnologies": "Tecnologías principales",
+    "FullStackTitle": "Desarrollo Full-Stack",
+    "FullStackDescription": "Construyendo soluciones integrales con tecnologías modernas y las mejores prácticas.",
+    "TechnicalLeadershipTitle": "Liderazgo Técnico",
+    "TechnicalLeadershipDescription": "Orientar a los equipos de desarrollo para entregar software de alta calidad a tiempo.",
+    "OptimizationTitle": "Optimización",
+    "OptimizationDescription": "Mejora de rendimiento y experiencia de usuario."
+  },
+  "Skills": {
+    "Title": "Habilidades",
+    "Description": "A lo largo de mi carrera he adquirido experiencia en diversas tecnologías y metodologías, permitiéndome abordar proyectos complejos con soluciones eficientes.",
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Databases": "Bases de Datos",
+    "Devops": "DevOps",
+    "Methodologies": "Metodologías",
+    "Others": "Otros"
+  },
+  "FeaturedProjects": {
+    "Title": "Proyectos Destacados",
+    "Description": "Aquí hay algunos de mis proyectos recientes. Cada uno presentó desafíos únicos y oportunidades para aprender y crecer.",
+    "ViewDetails": "Ver Detalles",
+    "ViewMore": "Ver más proyectos",
+    "FilterCategories": {
+      "all": "Todos",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Full-stack",
+      "mobile": "Mobile"
+    }
+  },
+  "ProfessionalExperience": {
+    "Title": "Experiencia Profesional"
+  },
+  "Contact": {
+    "Title": "¡Hablemos!",
+    "Description": "¿Tienes un proyecto en mente o simplemente quieres saludarme? No dudes en contactarme. Siempre estoy abierto a conversar sobre nuevos proyectos, ideas creativas u oportunidades para formar parte de tu visión.",        
+    "SuccessMessage": "¡Mensaje enviado! Gracias por tu mensaje. Te responderé pronto.",
+    "Information":  {
+      "Title": "Información de Contacto",
+      "LabelEmail": "E-mail",
+      "TextEmail": "deivis-andres90@hotmail.com",
+      "LabelPhone": "Teléfono",
+      "TextPhone": "+57 (318) 224 7238",
+      "LabelLocation": "Ubicación",
+      "TextLocation": "Cartagena de Indias, Colombia",
+      "Subtitle": "Sígueme"
+    },
+    "Labels": {
+      "Name": "Nombre",
+      "Email": "Correo Electrónico",
+      "Subject": "Asunto",
+      "Message": "Mensaje",
+      "Submitting": "Enviando...",
+      "Send": "Enviar mensaje"
+    }
+  }
 }

@@ -26,7 +26,7 @@ export class ProjectDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
-        this.project = projects.find(p => p.id === id);
+        this.project = projects.find(p => p.id.toString() === id);
         // Si el proyecto no se encuentra, puedes redirigir a una página de error
         if (!this.project) {
           this.router.navigate(['/not-found']);

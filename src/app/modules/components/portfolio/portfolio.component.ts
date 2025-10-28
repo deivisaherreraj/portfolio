@@ -1,21 +1,13 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ChangeDetectionStrategy, NgZone, computed, signal, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { trigger, transition, style, animate, state, query, stagger } from '@angular/animations';
-
-// Definimos una interfaz para el objeto Project para asegurar la tipado
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  githubLink?: string;
-  liveLink?: string;
-}
+import { FilterCategory, Project } from './models/project';
+import { projects } from '@appcore/data/projects';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     // Define la animación de opacidad y transformación para el efecto de entrada
     trigger('slideInUp', [
@@ -45,59 +37,78 @@ interface Project {
     ])
   ]
 })
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent implements OnInit, AfterViewInit {
   // Referencia al elemento HTML que se va a observar
   @ViewChild('projectsGrid', { static: true }) projectsGrid!: ElementRef;
 
   // Estado para controlar la visibilidad del contenido
   inView = false;
 
-  // La matriz de proyectos se define como una propiedad de la clase
-  projects: Project[] = [
-    {
-      id: 1,
-      title: 'E-commerce Platform',
-      description: 'Un sitio de comercio electrónico con todas las funciones, gestión de productos, autenticación de usuarios y un carrito de compras.',
-      image: 'https://placehold.co/600x400/0F172A/E2E8F0?text=Proyecto+1',
-      tags: ['Angular', 'Node.js', 'Express', 'MongoDB'],
-      githubLink: 'https://github.com/example/ecommerce-app',
-      liveLink: 'https://example.com/ecommerce-app',
-    },
-    {
-      id: 2,
-      title: 'Real-time Chat App',
-      description: 'Una aplicación de chat moderna y en tiempo real con chats grupales, mensajería privada y presencia de usuarios.',
-      image: 'https://placehold.co/600x400/0F172A/E2E8F0?text=Proyecto+2',
-      tags: ['Angular', 'RxJS', 'Firebase', 'WebSockets'],
-      githubLink: 'https://github.com/example/chat-app',
-      liveLink: 'https://example.com/chat-app',
-    },
-    {
-      id: 3,
-      title: 'Task Management Tool',
-      description: 'Una herramienta intuitiva para gestionar tareas personales y de equipo, con funcionalidad de arrastrar y soltar y tableros personalizados.',
-      image: 'https://placehold.co/600x400/0F172A/E2E8F0?text=Proyecto+3',
-      tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'D3.js'],
-      githubLink: 'https://github.com/example/task-manager',
-      liveLink: 'https://example.com/task-manager',
-    },
-  ];
+  filtersInView = false;
+  gridInView = false;
 
-  constructor() { }
+  trackByIndex = (i: number) => i;
+  trackByProjectId = (_: number, p: { id: number }) => p.id;
+  trackByValue = (_: number, v: string) => v;
+
+  // Filtros como en React
+  readonly filterCategories: FilterCategory[] = ['all', 'frontend', 'backend', 'fullstack', 'mobile'];
+  readonly activeFilter = signal<FilterCategory>('all');
+
+  // La matriz de proyectos se define como una propiedad de la clase
+  readonly projects = signal<Project[]>(projects);
+
+  // Equivalente a filteredProjects de React
+  readonly filteredProjects = computed(() => {
+    const filter = this.activeFilter();
+    const items = this.projects();
+    if (filter === 'all') return items;
+    return items.filter(p => Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
+  });
+
+  constructor(private zone: NgZone, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    // Configura IntersectionObserver para detectar cuando el elemento entra en la vista
+    /** Si quieres que los filtros animen al montar sin depender de la grilla: */
+    this.filtersInView = true;
+  }
+
+  ngAfterViewInit(): void {
+    /** Configura el observer después de renderizar la vista */
+    if (!('IntersectionObserver' in window)) {
+      // Fallback si no existe soporte
+      this.gridInView = true;
+      this.cdr.markForCheck();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          this.inView = true;
-          // Deja de observar una vez que el elemento ha sido visto
+          this.zone.run(() => {
+            this.gridInView = true;
+            this.cdr.markForCheck(); // OnPush: fuerza chequeo
+          });
           observer.unobserve(this.projectsGrid.nativeElement);
         }
       },
-      { threshold: 0.1 } // El umbral es el porcentaje de visibilidad
+      {
+        /** Dispara apenas asome la grilla (ajusta si quieres) */
+        threshold: 0,
+        root: null,
+        rootMargin: '0px 0px -20% 0px'
+      }
     );
-    // Comienza a observar el elemento de la cuadrícula de proyectos
+
     observer.observe(this.projectsGrid.nativeElement);
+  }
+
+  // Para a11y: aria-pressed y etiquetas del botón
+  isActive(cat: FilterCategory) {
+    return this.activeFilter() === cat;
+  }
+
+  setFilter(cat: FilterCategory) {
+    this.activeFilter.set(cat);
   }
 }

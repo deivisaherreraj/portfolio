@@ -1,27 +1,23 @@
 <section id="about" class="py-20 px-6 bg-zinc-800/30">
   <div class="max-w-6xl mx-auto">
     <div [@fadeInUp]="'in'" class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre mí</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ 'About.Me' | translate }}</h2>
       <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
     </div>
 
     <div #aboutContent [class.opacity-100]="inView" [class.opacity-0]="!inView"
       class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center transition-opacity duration-1000 ease-out">
       <div [@slideInLeft]="'in'">
-        <h3 class="text-2xl font-semibold mb-4">Quién soy</h3>
+        <h3 class="text-2xl font-semibold mb-4">{{ 'About.WhoIAm' | translate }}</h3>
         <p class="text-zinc-300 mb-4">
-          Soy un apasionado desarrollador de software con más de 10 años de experiencia en el desarrollo de aplicaciones
-          web y móviles. Me especializo en la creación de soluciones intuitivas y de alto rendimiento que resuelven
-          problemas del mundo real.
+          {{ 'About.AboutTextOne' | translate }}
         </p>
         <p class="text-zinc-300 mb-6">
-          Mi trayectoria en el mundo de la tecnología comenzó con la curiosidad por el funcionamiento de las cosas, que
-          evolucionó hacia una carrera centrada en la creación de experiencias digitales excepcionales. Estoy en
-          constante aprendizaje y adaptación a las nuevas tecnologías para ofrecer las mejores soluciones.
+          {{ 'About.AboutTextTwo' | translate }}
         </p>
         <div class="pt-4">
           <h3 class="text-xl font-semibold mb-4">
-            Tecnologías principales
+            {{ 'About.MainTechnologies' | translate }}
           </h3>
           <div class="flex flex-wrap gap-4">
             <span *ngFor="let skill of skills" class="px-4 py-2 bg-zinc-700 rounded-full text-sm">
@@ -44,11 +40,10 @@
             </div>
             <div>
               <h4 class="text-xl font-semibold mb-2">
-                Desarrollo Full-Stack
+                {{ 'About.FullStackTitle' | translate }}
               </h4>
               <p class="text-zinc-400">
-                Construyendo soluciones integrales con tecnologías modernas y
-                las mejores prácticas.
+                {{ 'About.FullStackDescription' | translate }}
               </p>
             </div>
           </div>
@@ -67,10 +62,10 @@
             </div>
             <div>
               <h4 class="text-xl font-semibold mb-2">
-                Liderazgo Técnico
+                {{ 'About.TechnicalLeadershipTitle' | translate }}
               </h4>
               <p class="text-zinc-400">
-                Orientar a los equipos de desarrollo para entregar software de alta calidad a tiempo.
+                {{ 'About.TechnicalLeadershipDescription' | translate }}
               </p>
             </div>
           </div>
@@ -87,10 +82,10 @@
             </div>
             <div>
               <h4 class="text-xl font-semibold mb-2">
-                Optimización
+                {{ 'About.OptimizationTitle' | translate }}
               </h4>
               <p class="text-zinc-400">
-                Mejora de rendimiento y experiencia de usuario.
+                {{ 'About.OptimizationDescription' | translate }}
               </p>
             </div>
           </div>
