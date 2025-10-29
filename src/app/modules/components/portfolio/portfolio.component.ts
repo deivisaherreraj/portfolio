@@ -1,7 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild, ChangeDetectionStrategy, NgZone, computed, signal, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { trigger, transition, style, animate, state, query, stagger } from '@angular/animations';
-import { FilterCategory, Project } from './models/project';
+
 import { projects } from '@appcore/data/projects';
+import { FilterCategory } from '@appcore/type/utils.type';
+import { Project } from './models/project.interface';
 
 @Component({
   selector: 'app-portfolio',
@@ -52,8 +54,8 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   trackByValue = (_: number, v: string) => v;
 
   // Filtros como en React
-  readonly filterCategories: FilterCategory[] = ['all', 'frontend', 'backend', 'fullstack', 'mobile'];
-  readonly activeFilter = signal<FilterCategory>('all');
+  readonly filterCategories: FilterCategory[] = ['All', 'Frontend', 'Backend', 'Fullstack', 'Mobile'];
+  readonly activeFilter = signal<FilterCategory>('All');
 
   // La matriz de proyectos se define como una propiedad de la clase
   readonly projects = signal<Project[]>(projects);
@@ -61,12 +63,15 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   // Equivalente a filteredProjects de React
   readonly filteredProjects = computed(() => {
     const filter = this.activeFilter();
-    const items = this.projects();
-    if (filter === 'all') return items;
+    const items = this.projects().slice(0, 3);
+    if (filter === 'All') return items;
     return items.filter(p => Array.isArray(p.category) ? p.category.includes(filter) : p.category === filter);
   });
 
-  constructor(private zone: NgZone, private cdr: ChangeDetectorRef) { }
+  constructor(
+    private zone: NgZone, 
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     /** Si quieres que los filtros animen al montar sin depender de la grilla: */
@@ -102,8 +107,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
     observer.observe(this.projectsGrid.nativeElement);
   }
-
-  // Para a11y: aria-pressed y etiquetas del botón
+  
   isActive(cat: FilterCategory) {
     return this.activeFilter() === cat;
   }

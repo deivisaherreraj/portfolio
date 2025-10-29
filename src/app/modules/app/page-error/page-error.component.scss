@@ -1,0 +1,32 @@
+/* Gradiente para el número gigante, equivalente a tailwind: bg-gradient-to-r from-blue-500 to-purple-500 */
+.gradient-text {
+    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+    /* azul→morado */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Tamaños responsivos similares a text-9xl / text-3xl md:text-4xl */
+.display-1 {
+    line-height: 1.1;
+
+    /* Ajuste opcional si quieres aún más grande en desktop */
+    @media (min-width: 768px) {
+        font-size: 6rem;
+        /* aprox 96px */
+    }
+}
+
+/* Opcional: si quieres oscurecer el btn-dark para temas claros/oscros */
+.btn-dark {
+    background-color: #1f2937;
+    /* zinc-800 aprox */
+    border-color: #1f2937;
+
+    &:hover {
+        background-color: #374151;
+        /* zinc-700 aprox */
+        border-color: #374151;
+    }
+}

@@ -11,6 +11,7 @@ import { ContactComponent } from '../modules/components/contact/contact.componen
 import { PortfolioComponent } from '../modules/components/portfolio/portfolio.component';
 import { SkillsComponent } from '../modules/components/skills/skills.component';
 import { ProjectDetailComponent } from '../modules/components/portfolio/pages/project-detail/project-detail.component';
+import { ProjectComponent } from '../modules/components/portfolio/pages/project/project.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProjectDetailComponent } from '../modules/components/portfolio/pages/pr
     EducationComponent,
     SkillsComponent,
     PortfolioComponent,
-    ProjectDetailComponent,
+    ProjectComponent,
+    ProjectDetailComponent,    
     ContactComponent
   ],
   exports: [

@@ -45,8 +45,8 @@
   "Skills": {
     "Title": "Skills",
     "Description": "Throughout my career, I have gained experience in various technologies and methodologies, enabling me to tackle complex projects with efficient solutions.",
-    "Frontend": "Frontend",
-    "Backend": "Backend",
+    "Frontend": "Front-End",
+    "Backend": "Back-End",
     "Databases": "Databases",
     "Devops": "DevOps",
     "Methodologies": "Methodologies",
@@ -57,16 +57,29 @@
     "Description": "Here are some of my recent projects. Each presented unique challenges and opportunities to learn and grow.",
     "ViewDetails": "View Details",
     "ViewMore": "View More Projects",
+    "AllProjects": "All Projects",
+    "AllProjectsDescription": "Explore my complete collection of projects. Each represents a unique challenge and an opportunity for professional growth.",
     "FilterCategories": {
-      "all": "All",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "fullstack": "Full-Stack",
-      "mobile": "Mobile"
+      "All": "All",
+      "Frontend": "Front-End",
+      "Backend": "Back-End",
+      "Fullstack": "Full-Stack",
+      "Mobile": "Mobile"
+    },
+    "Details": {
+      "ProjectNotFound": "Project Not Found",
+      "ProjectNotFoundDesc": "The project you're looking for doesn't exist.",
+      "BackToHome": "Back to Home",
+      "BackToProjects": "Back to Projects",
+      "ProjectOverview": "Project Overview",
+      "Description": "Details",
+      "SourceCode": "Source Code",
+      "LiveDemo": "Live Demo"
     }
   },
   "ProfessionalExperience": {
-    "Title": "Professional Experience"
+    "Title": "Professional Experience",
+    "DownloadCV": "Download Full CV"
   },
   "Contact": {
     "Title": "¡Let's talk!",
@@ -90,5 +103,9 @@
       "Submitting": "Sending...",
       "Send": "Send message"
     }
+  },
+  "Footer": {
+    "Copyright": "All rights reserved.",
+    "Text": "Made with ❤️ and a lot of coffee"
   }
 }

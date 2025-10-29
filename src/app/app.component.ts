@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 
+import { Language, Theme } from '@appcore/type/utils.type';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,7 +38,7 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
   ]
 })
 export class AppComponent {
-  theme: 'dark' | 'light' = 'dark';
+  theme: Theme = 'dark';
 
   constructor(
     readonly translate: TranslateService,
@@ -44,22 +46,23 @@ export class AppComponent {
   ) {
     this.translate.addLangs(['es', 'en']);
     this.translate.setDefaultLang('es');
-    this.translate.use((localStorage.getItem('lang') as 'es'|'en') || 'es');
+    this.translate.use((localStorage.getItem('lang') as Language) || 'es');
     this.translate.get('TextosAplicacion.PageTitle').subscribe((res: string) => {
       this.titleService.setTitle(res);
     });
+
     // Carga el tema guardado en localStorage al iniciar la aplicación
-    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' || 'dark';
+    const savedTheme = localStorage.getItem('theme') as Theme || 'dark';
     this.theme = savedTheme;
-    // Aplica la clase 'dark' al elemento <html>
+    
+    // Aplica la clase 'dark' al elemento <html>    
     document.documentElement.classList.toggle('dark', this.theme === 'dark');
   }
 
   toggleTheme(): void {
-    const newTheme = this.theme === 'dark' ? 'light' : 'dark';
-    this.theme = newTheme;
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    this.theme = this.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', this.theme);
+    document.documentElement.classList.toggle('dark', this.theme === 'dark');
   }
 
   getRouteAnimationData(outlet: RouterOutlet) {

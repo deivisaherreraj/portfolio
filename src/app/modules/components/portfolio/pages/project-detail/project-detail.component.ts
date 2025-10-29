@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { projects } from '../../../../../app-core/data/projects';
+
+import { projects } from '@appcore/data/projects';
+import { Project } from '../../models/project.interface';
 
 @Component({
   selector: 'app-project-detail',
@@ -17,9 +19,12 @@ import { projects } from '../../../../../app-core/data/projects';
   ],
 })
 export class ProjectDetailComponent implements OnInit {
-  project: any;
+  project: Project | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router
+  ) { }
 
   ngOnInit() {
     // Suscribirse a los cambios en los parámetros de la URL
@@ -29,10 +34,9 @@ export class ProjectDetailComponent implements OnInit {
         this.project = projects.find(p => p.id.toString() === id);
         // Si el proyecto no se encuentra, puedes redirigir a una página de error
         if (!this.project) {
-          this.router.navigate(['/not-found']);
+          this.router.navigate(['/page-error']);
         }
       }
     });
   }
-
 }

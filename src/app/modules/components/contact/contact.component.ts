@@ -3,6 +3,8 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
+import { Contact } from './models/contact.interface';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -42,7 +44,7 @@ export class ContactComponent implements OnInit {
   inView = false;
 
   // Propiedad de la clase para manejar el estado del formulario
-  formData = {
+  formData: Contact = {
     name: '',
     email: '',
     subject: '',

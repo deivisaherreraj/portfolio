@@ -1,0 +1,95 @@
+<!-- Contenedor principal -->
+<div class="pt-20 px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+        <!-- Back to home -->
+        <a routerLink="/"
+            class="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-200 mb-8 transition-colors"
+            aria-label="Go back to home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-arrow-left" aria-hidden="true" data-id="element-212">
+                <path d="m12 19-7-7 7-7"></path>
+                <path d="M19 12H5"></path>
+            </svg>
+            <span>{{ 'FeaturedProjects.Details.BackToHome' | translate }}</span>
+        </a>
+
+        <!-- Header (título + descripción) -->
+        <div @fadeSlideIn class="text-center mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                {{ 'FeaturedProjects.AllProjects' | translate }}
+            </h1>
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            <p class="mt-6 text-zinc-400 max-w-2xl mx-auto">
+                {{ 'FeaturedProjects.AllProjectsDescription' | translate }}
+            </p>
+        </div>
+
+        <!-- Botones de filtro -->
+        <div @fadeSlideIn class="flex flex-wrap justify-center gap-3 mb-12" [@fadeSlideIn]>
+            <button *ngFor="let category of filterCategories" (click)="setActiveFilter(category)"
+                class="px-6 py-2 rounded-full font-medium transition-all"
+                [ngClass]="isActive(category) ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/50' : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'"
+                [attr.aria-label]="'Filter by ' + category" [attr.aria-pressed]="isActive(category)" type="button">
+                {{ 'FeaturedProjects.FilterCategories.' + category | translate }}
+            </button>
+        </div>
+
+        <!-- Grid de proyectos -->
+        <!-- La clave (key) equivalente: *ngIf con binding al filtro para forzar swap -->
+        <div *ngIf="true" [@gridSwap]>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" @staggerList>
+                <div *ngFor="let project of filteredProjects(); trackBy: trackById"
+                    class="bg-zinc-800 rounded-xl overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 transition-shadow card-item">
+                    <div class="h-48 overflow-hidden">
+                        <img [src]="project.image" [alt]="project.title"
+                            class="w-full h-full object-cover transition-transform hover:scale-105" />
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            {{ project.title }}
+                        </h3>
+                        <p class="text-zinc-400 mb-4">
+                            {{ project.description }}
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span *ngFor="let tag of project.tags" class="px-2 py-1 bg-zinc-700 rounded-md text-xs">
+                                {{ tag }}
+                            </span>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <a [routerLink]="['/project', project.id]"
+                                class="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 text-sm">
+                                <span>{{ 'FeaturedProjects.ViewDetails' | translate }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"
+                                    data-id="element-182">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </a>
+
+                            <div class="flex gap-3">
+                                <a *ngIf="project.githubLink" [href]="project.githubLink" target="_blank"
+                                    rel="noopener noreferrer" class="text-zinc-400 hover:text-white transition-colors"
+                                    aria-label="View source code">
+                                    <i class="bi bi-github text-lg leading-none"></i>
+                                </a>
+
+                                <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank"
+                                    rel="noopener noreferrer" class="text-zinc-400 hover:text-white transition-colors"
+                                    aria-label="View live demo">
+                                    <i class="bi bi-box-arrow-up-right text-lg leading-none"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

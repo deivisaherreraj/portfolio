@@ -3,7 +3,9 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
 
-type Theme = 'dark' | 'light';
+import { Language, Theme } from '@appcore/type/utils.type';
+import { navLinks } from '@appcore/data/nav-links';
+import { NavLinks } from './models/nav-links.interface';
 
 @Component({
   selector: 'app-header',
@@ -32,16 +34,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isDark = true;
 
   /** Idioma actual */
-  language: 'es' | 'en' = 'es';
+  language: Language = 'es';
 
   /** Enlaces (ahora con keys de i18n para usar {{ key | translate }}) */
-  navLinks = [
-    { key: 'Home', value: 'home' },
-    { key: 'About', value: 'about' },
-    { key: 'Projects', value: 'projects' },
-    { key: 'Experience', value: 'experience' },
-    { key: 'Contact', value: 'contact' }
-  ];
+  navLinks: NavLinks[] = navLinks;
 
   constructor(
     readonly translate: TranslateService,
@@ -53,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const savedTheme = (localStorage.getItem('theme') as Theme) || this.theme;
     this.setTheme(savedTheme);
 
-    const savedLang = (localStorage.getItem('lang') as 'es' | 'en') || (this.translate.currentLang as 'es' | 'en') || 'es';
+    const savedLang = (localStorage.getItem('lang') as Language) || (this.translate.currentLang as Language) || 'es';
     this.useLanguage(savedLang);
   }
 

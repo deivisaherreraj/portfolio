@@ -24,10 +24,12 @@
       "dom"
     ],
     "paths": {
-      "@env/*": ["src/environments/*"],
-      "@appcore/*": ["src/app/app-core/*"],
+      "@appenv/*": ["src/environments/*"],
       "@appconfig/*": ["src/app/app-config/*"],
-      "@mockservices/*": ["src/app/app-core/mock-services/*"]
+      "@appcore/*": ["src/app/app-core/*"],     
+      "@applayout/*": ["src/app/layout/*"],
+      "@appmodules/*": ["src/app/modules/*"],
+      "@appshared/*": ["src/app/shared/*"]
     },
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true

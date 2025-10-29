@@ -1,4 +1,4 @@
-import { Project } from '../../modules/components/portfolio/models/project';
+import { Project } from '../../modules/components/portfolio/models/project.interface';
 
 export const projects: Project[] = [
   {
@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description: 'A full-featured online shopping platform with cart, payment processing, and order management.',
     image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    category: ['fullstack', 'frontend', 'backend'],
+    category: ['Fullstack', 'Frontend', 'Backend'],
     liveLink: 'https://example.com/ecommerce',
     githubLink: 'https://github.com/example/ecommerce',
     details: 'This project was built to provide a seamless shopping experience. It features user authentication, product catalog with search and filtering, shopping cart functionality, secure checkout with Stripe integration, and order history. The admin panel allows for product management, order processing, and analytics dashboards.',
@@ -18,7 +18,7 @@ export const projects: Project[] = [
     description: 'A collaborative task manager with real-time updates, team assignments, and progress tracking.',
     image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['React', 'Firebase', 'Redux', 'Material UI'],
-    category: ['frontend', 'fullstack'],
+    category: ['Frontend', 'Fullstack'],
     liveLink: 'https://example.com/taskmanager',
     githubLink: 'https://github.com/example/taskmanager',
     details: 'A comprehensive task management solution designed for team collaboration. Features include drag-and-drop task boards, real-time updates using Firebase, team member assignment, due date tracking, file attachments, comment threads, and customizable workflows. The application also includes reporting features to track team productivity and project progress.',
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     description: 'An application that uses machine learning to generate unique images from text descriptions.',
     image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['React', 'TensorFlow.js', 'Canvas API', 'Express'],
-    category: ['frontend', 'backend', 'fullstack'],
+    category: ['Frontend', 'Backend', 'Fullstack'],
     liveLink: 'https://example.com/ai-image',
     githubLink: 'https://github.com/example/ai-image',
     details: 'This project leverages machine learning models to generate unique images based on text prompts. It uses TensorFlow.js for client-side inference, allowing users to create art without server-side processing. Features include customizable generation parameters, image history, the ability to refine results with feedback, and options to download or share generated images on social media.',
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     description: 'A React Native app for tracking workouts, nutrition, and fitness goals with social features.',
     image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     tags: ['React Native', 'Expo', 'Firebase', 'Redux'],
-    category: ['mobile', 'fullstack'],
+    category: ['Mobile', 'Fullstack'],
     liveLink: 'https://example.com/fitness',
     githubLink: 'https://github.com/example/fitness',
     details: 'A comprehensive mobile fitness application built with React Native. Features workout tracking, meal planning, progress photos, social sharing, and integration with health APIs. The app includes personalized workout recommendations and nutritional guidance.',
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description: 'A scalable RESTful API with authentication, rate limiting, and comprehensive documentation.',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     tags: ['Node.js', 'Express', 'PostgreSQL', 'Docker'],
-    category: ['backend'],
+    category: ['Backend'],
     liveLink: 'https://example.com/api',
     githubLink: 'https://github.com/example/api',
     details:       'A robust backend API service with JWT authentication, role-based access control, request validation, comprehensive error handling, and automated testing. Includes Swagger documentation and Docker containerization.',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     description: 'A modern, responsive portfolio website with animations and dark mode support.',
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    category: ['frontend'],
+    category: ['Frontend'],
     liveLink: 'https://example.com/portfolio',
     githubLink: 'https://github.com/example/portfolio',
     details: 'A sleek portfolio website showcasing projects and skills. Features smooth animations, responsive design, dark mode toggle, contact form integration, and optimized performance.',

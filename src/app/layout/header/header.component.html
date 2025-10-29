@@ -1,5 +1,5 @@
 <header [class.py-5]="!isScrolled" [class.bg-transparent]="!isScrolled"
-  class="py-3 fixed top-0 w-full z-50 bg-zinc-900/80 dark:bg-white backdrop-blur-sm shadow-md transition-colors duration-300">
+  class="py-3 fixed top-0 w-full z-50 bg-zinc-900/80 dark:bg-white/80 backdrop-blur-sm transition-colors duration-300">
   <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
     <a routerLink="/"
       class="text-xl font-bold transition-transform duration-300 transform hover:scale-105">
@@ -57,33 +57,13 @@
         class="p-1 rounded-full bg-zinc-700 hover:bg-zinc-800 dark:bg-zinc-200 dark:hover:bg-zinc-300 transition-colors"
         [attr.aria-label]="language === 'es' ? ('Header.NavLinks.SwitchTo.En' | translate) : ('Header.NavLinks.SwitchTo.Es' | translate)"
         title="{{ language === 'es' ? 'English' : 'Español' }}">
-        <!-- UK flag -->
-        <span *ngIf="language === 'es'"
-          class="flex items-center justify-center w-6 h-6">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24"
-            height="12">
-            <clippath id="a-header-uk"><path d="M0 0v30h60V0z" /></clippath>
-            <clippath id="b-header-uk"><path
-                d="M30 15h30v15zv15H0zH0V0zV0h30z" /></clippath>
-            <g clip-path="url(#a-header-uk)">
-              <path d="M0 0v30h60V0z" fill="#012169" />
-              <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6" />
-              <path d="M0 0l60 30m0-30L0 30" clip-path="url(#b-header-uk)"
-                stroke="#C8102E" stroke-width="4" />
-              <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
-              <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6" />
-            </g>
-          </svg>
+        <!-- EEUU flag -->
+        <span *ngIf="language === 'es'" class="flex items-center justify-center">
+          <img src="/assets/icon/eu-flag-circle-icon.svg" width="28" height="28" />
         </span>
         <!-- CO flag -->
-        <span *ngIf="language === 'en'"
-          class="flex items-center justify-center w-6 h-6">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 4" width="24"
-            height="16">
-            <rect width="6" height="4" fill="#CE1126" />
-            <rect width="6" height="2" fill="#FCD116" />
-            <rect width="6" height="1" fill="#003893" />
-          </svg>
+        <span *ngIf="language === 'en'" class="flex items-center justify-center">
+          <img src="/assets/icon/colombia-flag-circle-icon.svg"  width="28" height="28" />
         </span>
       </button>
     </nav>

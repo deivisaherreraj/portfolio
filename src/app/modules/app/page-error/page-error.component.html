@@ -1,1 +1,36 @@
-<p>page-error works!</p>
+<div class="min-vh-100 d-flex align-items-center justify-content-center px-3">
+    <div class="text-center w-100" style="max-width: 720px" [@fadeSlideIn]>
+        <!-- Código de error grande con gradiente -->
+        <div class="mb-4 mb-md-5" [@scaleIn]>
+            <h1 class="display-1 fw-bold gradient-text m-0">
+                {{ errorCode }}
+            </h1>
+        </div>
+
+        <!-- Título -->
+        <h2 class="fw-bold mb-3 h2 h1-md" [@fadeInTitle]>
+            {{ title }}
+        </h2>
+
+        <!-- Mensaje -->
+        <p class="lead text-muted mb-4 mb-md-5" [@fadeInMsg]>
+            {{ message }}
+        </p>
+
+        <!-- Acciones -->
+        <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3" [@fadeInActions]>
+            <!-- Ir al inicio -->
+            <button type="button" class="btn btn-primary rounded-pill px-4 py-2" (click)="goHome()">
+                <!-- Cambia por tu set de íconos si prefieres: -->
+                <i class="bi bi-house-door me-2" aria-hidden="true"></i>
+                <span>Volver al Inicio</span>
+            </button>
+
+            <!-- Volver atrás -->
+            <button *ngIf="showBackButton" type="button" class="btn btn-dark rounded-pill px-4 py-2" (click)="goBack()">
+                <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>
+                <span>Página Anterior</span>
+            </button>
+        </div>
+    </div>
+</div>
