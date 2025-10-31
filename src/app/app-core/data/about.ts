@@ -2,13 +2,12 @@ import { AboutServices } from "@appmodules/components/about/models/about.interfa
 
 // Array de habilidades para renderizado dinámico
 export const aboutSkills: string[] = [
-    'JavaScript/TypeScript',
+    '.NET (C#)',
     'Angular',
     'Node.js',
-    'CSS/SCSS',
-    'Tailwind CSS',
-    'RESTful APIs',
-    '.NET Core',
+    'TypeScript',
+    'JavaScript',
+    'PHP',
 ];
 
 // Array de datos para las tarjetas de servicios

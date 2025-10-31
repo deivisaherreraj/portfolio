@@ -6,9 +6,9 @@
   "Greeting": "Hello 👋, I'm a",
   "Name": "Herrera, Deivis",
   "JobTitle": "Systems Engineer",
-  "HomeTitle": "Senior Software Developer",
+  "HomeTitle": "Senior Software Engineer",
   "HomeSubtitle": "Full-Stack Developer",
-  "Details": "Creating exceptional digital experiences with over 10 years of experience in software development.",
+  "Details": "🚀 Full-Stack Developer with 10+ years of experience: transforming complex ideas into powerful and scalable digital solutions. Let's talk software! 💡",
   "ViewWork": "View projects",
   "Scroll": "Scroll down for more",
   "Header": {
@@ -32,8 +32,8 @@
   "About": {
     "Me": "About me",
     "WhoIAm": "Who I am",
-    "AboutTextOne": "I am a passionate software developer with over 10 years of experience developing web and mobile applications. I specialize in creating intuitive, high-performance solutions that solve real-world problems.",
-    "AboutTextTwo": "My journey in technology began with a curiosity about how things work, which evolved into a career focused on creating exceptional digital experiences. I am constantly learning and adapting to new technologies to deliver the best solutions.",
+    "AboutTextOne": "What's up! 👋 I'm Deivis Herrera, a Systems Engineer and Full-Stack Developer with over a decade (yes, 10+ years!) of experience creating digital experiences. My mission is clear: to turn complex ideas into reliable, efficient, and scalable products.",
+    "AboutTextTwo": "I'm driven by innovation 💡 and the constant search for new ways to improve every project. It's not just about programming, but about designing solutions that inspire, work well, and leave a lasting impact. Ready to take your project to the next level and bring your next big idea to life! 🚀",
     "MainTechnologies": "Main technologies",
     "FullStackTitle": "Full-Stack Development",
     "FullStackDescription": "Building comprehensive solutions with modern technologies and best practices.",
