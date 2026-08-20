@@ -22,10 +22,6 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class HomeComponent {
 
-  constructor() { }
-
-  ngOnInit(): void { }
-
   // Función para manejar el scroll
   scrollTo(targetId: string): void {
     const element = document.getElementById(targetId);

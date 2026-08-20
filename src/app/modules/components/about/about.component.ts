@@ -48,8 +48,6 @@ export class AboutComponent implements OnInit {
   // Array de datos para las tarjetas de servicios
   services: AboutServices[] = aboutServices;
 
-  constructor() { }
-
   ngOnInit(): void {
     // Configura IntersectionObserver para detectar cuando el elemento entra en la vista
     const observer = new IntersectionObserver(

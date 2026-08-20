@@ -47,8 +47,6 @@ export class EducationComponent implements OnInit {
   // La matriz de datos se define como una propiedad de la clase
   experiences: Experience[] = experiences;
 
-  constructor() { }
-
   ngOnInit(): void {
     // Configura IntersectionObserver para detectar cuando el elemento entra en la vista
     const observer = new IntersectionObserver(

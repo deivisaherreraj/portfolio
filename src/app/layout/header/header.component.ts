@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, HostListener, Inject } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
@@ -23,7 +23,7 @@ import { NavLinks } from './models/nav-links.interface';
     ]),
   ],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   // @Input() recibe datos del componente padre
   @Input() theme: Theme = 'dark';
   // @Output() emite un evento al componente padre cuando el tema cambia
@@ -52,8 +52,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const savedLang = (localStorage.getItem('lang') as Language) || (this.translate.currentLang as Language) || 'es';
     this.useLanguage(savedLang);
   }
-
-  ngOnDestroy(): void { }
 
   // Escucha el evento 'scroll' en la ventana
   @HostListener('window:scroll')

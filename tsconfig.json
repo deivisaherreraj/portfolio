@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "rootDir": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -11,9 +12,9 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
@@ -24,12 +25,12 @@
       "dom"
     ],
     "paths": {
-      "@appenv/*": ["src/environments/*"],
-      "@appconfig/*": ["src/app/app-config/*"],
-      "@appcore/*": ["src/app/app-core/*"],     
-      "@applayout/*": ["src/app/layout/*"],
-      "@appmodules/*": ["src/app/modules/*"],
-      "@appshared/*": ["src/app/shared/*"]
+      "@appenv/*": ["./src/environments/*"],
+      "@appconfig/*": ["./src/app/app-config/*"],
+      "@appcore/*": ["./src/app/app-core/*"],
+      "@applayout/*": ["./src/app/layout/*"],
+      "@appmodules/*": ["./src/app/modules/*"],
+      "@appshared/*": ["./src/app/shared/*"]
     },
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
